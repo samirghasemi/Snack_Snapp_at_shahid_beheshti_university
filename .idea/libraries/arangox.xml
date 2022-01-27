@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="arangox" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/arangox/lib" />
+      <root url="file://$PROJECT_DIR$/deps/arangox/lib" />
+      <root url="file://$PROJECT_DIR$/deps/arangox/lib" />
+      <root url="file://$PROJECT_DIR$/deps/arangox/lib" />
+    </SOURCES>
+  </library>
+</component>

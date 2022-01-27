@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="arangox_ecto" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/arangox_ecto/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/arangox_ecto/lib" />
+      <root url="file://$PROJECT_DIR$/deps/arangox_ecto/lib" />
+      <root url="file://$PROJECT_DIR$/deps/arangox_ecto/lib" />
+      <root url="file://$PROJECT_DIR$/deps/arangox_ecto/lib" />
+    </SOURCES>
+  </library>
+</component>

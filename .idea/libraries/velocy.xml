@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="velocy" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+    </SOURCES>
+  </library>
+</component>
