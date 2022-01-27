@@ -9,9 +9,36 @@
       <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/velocy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/velocy/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
+      <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
       <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
       <root url="file://$PROJECT_DIR$/deps/velocy/lib" />
       <root url="file://$PROJECT_DIR$/deps/velocy/lib" />

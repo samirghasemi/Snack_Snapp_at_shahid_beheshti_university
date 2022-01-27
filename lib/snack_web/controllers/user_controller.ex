@@ -11,12 +11,22 @@ defmodule SnackWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
-  def create(conn, %{"user" => user_params}) do
+  def sign_up(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.user_path(conn, :show, user))
+#      |> put_resp_header("location", Routes.user_path(conn, :show, user))
       |> render("show.json", user: user)
+    end
+  end
+
+  def sign_in(conn, %{"user" => %{"username" => username , "password"=> password}})do
+    case Accounts.token_sign_in(username, password) do
+      {:ok , token , _claims} ->
+        conn
+        |> render("jwt.json" , jwt: token)
+      _ ->
+        {:error , :unauthorized}
     end
   end
 

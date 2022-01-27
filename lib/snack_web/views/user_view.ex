@@ -2,6 +2,10 @@ defmodule SnackWeb.UserView do
   use SnackWeb, :view
   alias SnackWeb.UserView
 
+  def render("jwt.json", %{jwt: jwt}) do
+    %{jwt: jwt}
+  end
+
   def render("index.json", %{users: users}) do
     %{data: render_many(users, UserView, "user.json")}
   end

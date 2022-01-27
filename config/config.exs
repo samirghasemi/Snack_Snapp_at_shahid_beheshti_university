@@ -8,15 +8,28 @@
 import Config
 
 config :snack,
-  ecto_repos: [Snack.Repo]
+       ecto_repos: [Snack.Repo]
 
 # Configures the endpoint
-config :snack, SnackWeb.Endpoint,
-  url: [host: "localhost"],
-  render_errors: [view: SnackWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Snack.PubSub,
-  live_view: [signing_salt: "G9Aho46V"]
+config :snack,
+       SnackWeb.Endpoint,
+       url: [
+         host: "localhost"
+       ],
+       render_errors: [
+         view: SnackWeb.ErrorView,
+         accepts: ~w(html json),
+         layout: false
+       ],
+       pubsub_server: Snack.PubSub,
+       live_view: [
+         signing_salt: "G9Aho46V"
+       ]
 
+config :snack,
+       Snack.Accounts.Guardian,
+       issuer: "snack",
+       secret_key: "tkp1TjIRFFg54YlghT6nSI7mKmQIUEAG6X48BBzLKKrwC82Hp+X0fKL/ITRG/oqh" # put the result of the mix command above here
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -31,18 +44,21 @@ config :swoosh, :api_client, false
 
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.14.0",
-  default: [
-    args:
-      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
-    cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
-  ]
+       version: "0.14.0",
+       default: [
+         args:
+           ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+         cd: Path.expand("../assets", __DIR__),
+         env: %{
+           "NODE_PATH" => Path.expand("../deps", __DIR__)
+         }
+       ]
 
 # Configures Elixir's Logger
-config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+config :logger,
+       :console,
+       format: "$time $metadata[$level] $message\n",
+       metadata: [:request_id]
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason

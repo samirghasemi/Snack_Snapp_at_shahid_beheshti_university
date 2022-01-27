@@ -7,6 +7,7 @@ defmodule Snack.Accounts do
   alias Snack.Repo
 
   alias Snack.Accounts.User
+  alias Snack.Accounts.Guardian
 
   @doc """
   Returns the list of users.
@@ -50,6 +51,7 @@ defmodule Snack.Accounts do
 
   """
   def create_user(attrs \\ %{}) do
+
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
@@ -101,4 +103,53 @@ defmodule Snack.Accounts do
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end
+  def authenticate_user(username, plain_text_password) do
+    query = from u in User, where: u.username == ^username
+    case Repo.one(query) do
+      nil ->
+        Pbkdf2.no_user_verify()
+        {:error, :invalid_credentials}
+      user ->
+        case Pbkdf2.verify_pass(plain_text_password, user.password) do
+          true ->
+            {:ok, user}
+          false ->
+            {:error, :invalid_credentials}
+        end
+    end
+  end
+
+  defp get_user_by_username(username) when is_binary(username)do
+    case Repo.get_by(User, username: username) do
+      nil ->
+        Pbkdf2.no_user_verify()
+        {:error, :not_found}
+      user ->
+        {:ok, user}
+    end
+  end
+
+  defp verify_password(password, %User{} = user) when is_binary(password) do
+    if Pbkdf2.verify_pass(password, user.password) do
+      {:ok, user}
+    else
+      {:error, :invalid_password}
+    end
+  end
+
+  defp user_password_auth(username, password) when is_binary(username) and is_binary(password) do
+    with {:ok , user} <- get_user_by_username(username),
+         do: verify_password(password , user)
+  end
+
+  def token_sign_in(username , password) do
+    case user_password_auth(username , password) do
+      {:ok , user} ->
+        Guardian.encode_and_sign(user)
+      _ ->
+        {:error , :unauthorized}
+    end
+  end
+
+
 end
