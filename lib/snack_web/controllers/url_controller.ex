@@ -11,33 +11,29 @@ defmodule SnackWeb.UrlController do
     render(conn, "index.json", urls: urls)
   end
 
-  def create(conn, %{"url" => url_params}) do
-    with {:ok, %Url{} = url} <- Monitoring.create_url(url_params) do
+  def create(conn, %{"url" => url_params} = param) do
+    with {:ok, %Url{} = url} <- Monitoring.create_url_with_user(url_params,conn) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.url_path(conn, :show, url))
       |> render("show.json", url: url)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    url = Monitoring.get_url!(id)
+    url = Monitoring.get_urls(conn)
     render(conn, "show.json", url: url)
   end
 
-  def update(conn, %{"id" => id, "url" => url_params}) do
-    url = Monitoring.get_url!(id)
+  def list(conn, %{"id" => id}) do
 
-    with {:ok, %Url{} = url} <- Monitoring.update_url(url, url_params) do
-      render(conn, "show.json", url: url)
+#    with {:ok, res} <- Monitoring.get_urls(conn)do
+#      render(conn, "index.json", url: res)
+#    end
+#    IO.inspect urls
+
+    with {:ok, res} <- Monitoring.get_urls(id)do
+      render(conn, "index.json", url: res)
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    url = Monitoring.get_url!(id)
-
-    with {:ok, %Url{}} <- Monitoring.delete_url(url) do
-      send_resp(conn, :no_content, "")
-    end
-  end
 end

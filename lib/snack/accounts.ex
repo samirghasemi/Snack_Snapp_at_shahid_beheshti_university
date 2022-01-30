@@ -50,11 +50,15 @@ defmodule Snack.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_user(attrs \\ %{}) do
-
-    %User{}
-    |> User.changeset(attrs)
-    |> Repo.insert()
+  def create_user(%{"username" => username} = attrs \\ %{}) do
+    case get_user_by_username(username) do
+      {:error, :not_found} ->
+        %User{}
+        |> User.changeset(attrs)
+        |> Repo.insert()
+      {:ok, user} ->
+        {:error, :username_has_been_taken}
+    end
   end
 
   @doc """

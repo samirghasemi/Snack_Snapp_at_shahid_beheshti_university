@@ -23,17 +23,26 @@ defmodule SnackWeb.Router do
     pipe_through [:api]
     post "/sign_up", UserController, :sign_up
     post "/sign_in", UserController, :sign_in
-    #    get "/users", UserController, :index
   end
 
   scope "/api/url", SnackWeb do
     pipe_through [:api , :jwt_authenticated]
-      post "/", UrlController, :sign_up
-
-    #    post "/sign_up", UserController, :sign_up
-#    post "/sign_in", UserController, :sign_in
-    #    get "/users", UserController, :index
+    post "/", UrlController, :create
+#    get "/", UrlController, :list
+    get "/:id", UrlController, :list
+    get "/:id", UrlController, :statistic
   end
+
+  scope "/api/alert", SnackWeb do
+    pipe_through [:api , :jwt_authenticated]
+    get "/:id", AlertController, :show
+  end
+
+  scope "/api/log", SnackWeb do
+    pipe_through [:api , :jwt_authenticated]
+    get "/:id", LogController, :show
+  end
+
 
 
   # Other scopes may use custom stacks.

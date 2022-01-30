@@ -1,8 +1,10 @@
 defmodule Snack.Monitoring.Alert do
   use Ecto.Schema
   import Ecto.Changeset
+  @primary_key false
 
   schema "alerts" do
+    field :id, :string
     field :url_id, :string
 
     timestamps()

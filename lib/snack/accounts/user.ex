@@ -1,8 +1,10 @@
 defmodule Snack.Accounts.User do
-  use ArangoXEcto.Schema
+  use Ecto.Schema
   import Ecto.Changeset
+  @primary_key false
 
   schema "users" do
+    field :id, :string
     field :username, :string , unique: true
     field :password, :string
     timestamps()

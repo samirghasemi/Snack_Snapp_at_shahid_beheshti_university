@@ -20,4 +20,5 @@ defmodule SnackWeb.UserView do
       username: user.username
     }
   end
+
 end

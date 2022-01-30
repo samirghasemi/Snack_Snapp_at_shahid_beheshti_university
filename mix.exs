@@ -49,10 +49,11 @@ defmodule Snack.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:arangox_ecto, "~> 0.6"},
       {:guardian, "~> 2.0"},
-      {:pbkdf2_elixir, "~> 1.4"}
-
+      {:pbkdf2_elixir, "~> 1.4"},
+      {:httpoison, "~> 1.8"},
+      {:arangox, "~> 0.4.0"},
+      {:velocy, "~> 0.1"}
     ]
   end
 

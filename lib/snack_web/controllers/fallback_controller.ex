@@ -21,4 +21,16 @@ defmodule SnackWeb.FallbackController do
     |> put_view(SnackWeb.ErrorView)
     |> render(:"404")
   end
+
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> json(%{error: "Login Error!"})
+  end
+
+  def call(conn, {:error, :username_has_been_taken}) do
+    conn
+    |> put_status(:unauthorized)
+    |> json(%{error: "This username has been taken"})
+  end
 end

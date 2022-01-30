@@ -10,6 +10,7 @@ defmodule Snack.Application do
     children = [
       # Start the Ecto repository
       Snack.Repo,
+      Snack.Server,
       # Start the Telemetry supervisor
       SnackWeb.Telemetry,
       # Start the PubSub system

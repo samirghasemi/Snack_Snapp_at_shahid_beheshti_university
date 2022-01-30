@@ -8,6 +8,7 @@ defmodule Snack.Monitoring do
 
   alias Snack.Monitoring.Url
 
+
   @doc """
   Returns the list of urls.
 
@@ -55,6 +56,35 @@ defmodule Snack.Monitoring do
     |> Repo.insert()
   end
 
+  def create_url_with_user(attrs \\ %{}, conn) do
+    maybe_user = Guardian.Plug.current_resource(conn)
+    attrs2 = Map.put(attrs , "user_id" , maybe_user.id)
+    %Url{}
+    |> Url.changeset(attrs2)
+    |> Repo.insert()
+  end
+
+  def get_urls(id) do
+      Repo.query(
+      """
+      for url in urls
+      filter url.user_id=="#{id}"
+      return keep(url , "link","threshold" , "_key")
+      """
+    )
+  end
+
+#  def get_urls(conn) do
+#    maybe_user = Guardian.Plug.current_resource(conn)
+#    ArangoXEcto.aql_query(Repo,
+#      """
+#      for url in urls
+#      filter url.user_id=="#{maybe_user.id}"
+#      return keep(url , "link","threshold" , "_key")
+#      """
+#    )
+#  end
+#
   @doc """
   Updates a url.
 
@@ -71,6 +101,31 @@ defmodule Snack.Monitoring do
     url
     |> Url.changeset(attrs)
     |> Repo.update()
+  end
+
+  def update_url_counter(url,delay) do
+      Repo.query(
+      """
+        let url = (for u in urls
+        filter u._key =="#{url}"
+        return keep(u , "_key","updated_at","errors_counter")
+        )[0]
+        let updated_time = DATE_TIMESTAMP(url.updated_at)
+        let now_time = date_iso8601(date_now())
+        let obj = now_time - updated_time < #{delay} ?
+        [{
+        "_key":url._key , "errors_counter": url.errors_counter + 1 , "updated_at": now_time
+        }]
+        :
+        [{
+        "_key":url._key ,
+        "errors_counter": 0,
+        "updated_at": now_time
+        }]
+        for o in obj
+        update o in urls
+      """
+      )
   end
 
   @doc """
@@ -133,6 +188,18 @@ defmodule Snack.Monitoring do
   """
   def get_log!(id), do: Repo.get!(Log, id)
 
+  def get_logs(id) do
+    Repo.query(
+      """
+      url
+      for log in logs
+      filter log.url_id=="#{id}"
+      return log
+      """
+    )
+  end
+
+
   @doc """
   Creates a log.
 
@@ -149,6 +216,7 @@ defmodule Snack.Monitoring do
     %Log{}
     |> Log.changeset(attrs)
     |> Repo.insert()
+
   end
 
   @doc """

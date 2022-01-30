@@ -12,11 +12,14 @@ defmodule SnackWeb.UserController do
   end
 
   def sign_up(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
-      conn
-      |> put_status(:created)
-#      |> put_resp_header("location", Routes.user_path(conn, :show, user))
-      |> render("show.json", user: user)
+    IO.inspect user_params
+    case Accounts.create_user(user_params) do
+      {:ok, %User{} = user} ->
+        conn
+        |> put_status(:created)
+        |> render("show.json", user: user)
+      {:error, :username_has_been_taken} ->
+        {:error, :username_has_been_taken}
     end
   end
 
