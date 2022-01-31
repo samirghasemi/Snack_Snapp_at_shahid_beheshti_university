@@ -19,9 +19,21 @@
       <root url="file://$PROJECT_DIR$/_build/test/lib/guardian/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
       <root url="file://$PROJECT_DIR$/_build/test/lib/guardian/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/guardian/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
+      <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
+      <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
+      <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
+      <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
+      <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
       <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
       <root url="file://$PROJECT_DIR$/deps/guardian/lib" />
       <root url="file://$PROJECT_DIR$/deps/guardian/lib" />

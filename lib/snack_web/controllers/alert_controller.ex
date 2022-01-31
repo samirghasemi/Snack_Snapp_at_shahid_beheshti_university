@@ -11,6 +11,11 @@ defmodule SnackWeb.AlertController do
     render(conn, "index.json", alerts: alerts)
   end
 
+  def index(conn, %{"id" => id}) do
+    alerts = Monitoring.list_alerts()
+    render(conn, "index.json", alerts: alerts)
+  end
+
   def create(conn, %{"alert" => alert_params}) do
     with {:ok, %Alert{} = alert} <- Monitoring.create_alert(alert_params) do
       conn
@@ -25,19 +30,9 @@ defmodule SnackWeb.AlertController do
     render(conn, "show.json", alert: alert)
   end
 
-  def update(conn, %{"id" => id, "alert" => alert_params}) do
-    alert = Monitoring.get_alert!(id)
-
-    with {:ok, %Alert{} = alert} <- Monitoring.update_alert(alert, alert_params) do
-      render(conn, "show.json", alert: alert)
-    end
+  def show_by_id(conn, %{"id" => id}) do
+    alerts = Monitoring.get_alert_by_user(id)
+    render(conn, "showby.json", alerts: alerts)
   end
 
-  def delete(conn, %{"id" => id}) do
-    alert = Monitoring.get_alert!(id)
-
-    with {:ok, %Alert{}} <- Monitoring.delete_alert(alert) do
-      send_resp(conn, :no_content, "")
-    end
-  end
 end

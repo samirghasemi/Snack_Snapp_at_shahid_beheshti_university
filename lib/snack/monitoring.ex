@@ -188,16 +188,51 @@ defmodule Snack.Monitoring do
   """
   def get_log!(id), do: Repo.get!(Log, id)
 
-  def get_logs(id) do
-    Repo.query(
+  def get_urls_log(id) do
+    [hd|_ta] = Repo.query(
       """
-      url
+      let url = (
+      for url in urls
+      filter url._key=="#{id}"
+      return url
+      )[0]
+
+      let logs = (
       for log in logs
       filter log.url_id=="#{id}"
       return log
+      )
+      return {id: url._key , url: url.link , logs: logs}
       """
     )
+    hd
   end
+
+  def get_urls_today_log(id) do
+    [hd|_ta] = Repo.query(
+      """
+      let url = (
+      for url in urls
+      filter url._key=="#{id}"
+      return url
+      )[0]
+
+      let success = (
+      for log in logs
+      filter log.url_id=="#{id}" and DATE_ISO8601(log.inserted_at)>DATE_ADD(DATE_NOW(), -1, "day") and log.status==true
+      return log
+      )
+      let failures = (
+      for log in logs
+      filter log.url_id=="#{id}" and DATE_ISO8601(log.inserted_at)>DATE_ADD(DATE_NOW(), -1, "day") and log.status==false
+      return log
+      )
+      return {id: url._key , url: url.link , suc: count(success) , fail: count(failures)}
+      """
+    )
+    hd
+  end
+
 
 
   @doc """
@@ -297,6 +332,17 @@ defmodule Snack.Monitoring do
   """
   def get_alert!(id), do: Repo.get!(Alert, id)
 
+  def get_alert_by_user(id) do
+    Repo.query(
+      """
+      for alert in alerts
+      for url in urls
+      filter alert.url_id == url._key
+      filter url.user_id == "#{id}"
+      return {alert: keep(alert, "inserted_at") ,url: keep(url, "link" , "threshold")}
+      """
+    )
+  end
   @doc """
   Creates a alert.
 

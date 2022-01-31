@@ -21,9 +21,21 @@
       <root url="file://$PROJECT_DIR$/_build/test/lib/pbkdf2_elixir/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
       <root url="file://$PROJECT_DIR$/_build/test/lib/pbkdf2_elixir/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/pbkdf2_elixir/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
+      <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
+      <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
+      <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
+      <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
+      <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
       <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
       <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />
       <root url="file://$PROJECT_DIR$/deps/pbkdf2_elixir/lib" />

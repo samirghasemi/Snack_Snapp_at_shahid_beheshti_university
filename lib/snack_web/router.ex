@@ -28,14 +28,14 @@ defmodule SnackWeb.Router do
   scope "/api/url", SnackWeb do
     pipe_through [:api , :jwt_authenticated]
     post "/", UrlController, :create
-#    get "/", UrlController, :list
+    #    get "/", UrlController, :list
+    get "/statistic/:id", UrlController, :statistic
     get "/:id", UrlController, :list
-    get "/:id", UrlController, :statistic
   end
 
   scope "/api/alert", SnackWeb do
     pipe_through [:api , :jwt_authenticated]
-    get "/:id", AlertController, :show
+    get "/:id", AlertController, :show_by_id
   end
 
   scope "/api/log", SnackWeb do
