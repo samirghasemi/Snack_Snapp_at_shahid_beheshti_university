@@ -124,16 +124,23 @@ defmodule Snack.Accounts do
   end
 
   defp get_user_by_username(username) when is_binary(username)do
-    case Repo.get_by(User, username: username) do
-      nil ->
+    aql = """
+      for u in users
+      filter u.username=="#{username}"
+      limit 1
+      return u
+    """
+     case Repo.query(aql) do
+      [] ->
         Pbkdf2.no_user_verify()
         {:error, :not_found}
       user ->
-        {:ok, user}
+        [hd| _ta] = user
+        {:ok, hd}
     end
   end
 
-  defp verify_password(password, %User{} = user) when is_binary(password) do
+  defp verify_password(password, user) when is_binary(password) do
     if Pbkdf2.verify_pass(password, user.password) do
       {:ok, user}
     else
