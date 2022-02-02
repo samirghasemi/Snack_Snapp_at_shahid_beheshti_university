@@ -4,7 +4,7 @@ import Config
 config :snack, Snack.Repo,
   username: "root",
   password: "1234",
-  endpoints: "http://arrango.samirghasemi.ir:8529/",
+  endpoints: "localhost:8529",
   database: "snack",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
