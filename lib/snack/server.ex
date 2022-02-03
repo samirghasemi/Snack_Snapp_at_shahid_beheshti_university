@@ -57,12 +57,7 @@ defmodule Snack.Server do
   def handle_call({:live_data}, _from, state) do
     {:reply, state}
   end
-
   defp update_live_data_schedule() do
     Process.send_after(__MODULE__, {:update_live_data}, @deley)
   end
-  def get_all_streams_from_server() do
-
-  end
-
 end

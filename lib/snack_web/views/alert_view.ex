@@ -30,7 +30,6 @@ defmodule SnackWeb.AlertView do
   end
 
   def render("alertby.json", %{alert: alert}) do
-    IO.inspect alert
     %{
       url_link: alert.url.link,
       url_threshold: alert.url.threshold,

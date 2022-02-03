@@ -8,8 +8,6 @@ defmodule SnackWeb.UrlController do
 
   def create(conn, %{"url" => url_params} = param) do
     with {:ok, %Url{} = url} <- Monitoring.create_url_with_user(url_params,conn) do
-      IO.inspect(url)
-
       conn
       |> put_status(:created)
       |> render("create.json", url: url)
